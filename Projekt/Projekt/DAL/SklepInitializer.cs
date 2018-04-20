@@ -35,7 +35,11 @@ namespace Projekt.DAL
                 new Sklep() {SklepId=3, bestseller= true, Cena= 269, DataDodania=DateTime.Now, KategorieId = 2,Marka="Bogdan",
                 NazwaPlikuObrazka = "Bluza.jpg",OpisPrzedmiotu="Bluzy",Tytul="Bluza Bogdan"},
                 new Sklep() {SklepId=4, bestseller= true, Cena= 56, DataDodania=DateTime.Now, KategorieId = 6,Marka="Bogdan",
-                NazwaPlikuObrazka = "Czapka.png",OpisPrzedmiotu="Dodatki",Tytul="Czapka"}
+                NazwaPlikuObrazka = "Czapka.png",OpisPrzedmiotu="Dodatki",Tytul="Czapka"},
+                new Sklep() {SklepId=5, bestseller=true, Cena=99, DataDodania=DateTime.Now, KategorieId=3,Marka="Adrian",
+                NazwaPlikuObrazka="Spodnie.jpg",OpisPrzedmiotu="Spodnie",Tytul="Spodnie Adrian"},
+                new Sklep() {SklepId=6, bestseller=true, Cena=199, DataDodania=DateTime.Now, KategorieId=3,Marka="Paulina",
+                NazwaPlikuObrazka="Spodnie2.jpg",OpisPrzedmiotu="Spodnie",Tytul="Spodnie Paulina"},
             };
 
             sklep.ForEach(k => context.Sklep.AddOrUpdate(k));

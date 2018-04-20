@@ -157,6 +157,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KoszykController.cs" />
     <Compile Include="Controllers\KursyController.cs" />
@@ -187,6 +188,7 @@
     <Compile Include="Models\Sklep.cs" />
     <Compile Include="Models\Zamowienia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View_Models\AccountViewModel.cs" />
     <Compile Include="View_Models\HomeViewModel.cs" />
     <Compile Include="View_Models\KoszykViewModel.cs" />
   </ItemGroup>
@@ -200,6 +202,8 @@
     <Content Include="Content\Images\Koszulka.png" />
     <Content Include="Content\Images\Koszyk.jpg" />
     <Content Include="Content\Images\new.png" />
+    <Content Include="Content\Images\Spodnie.jpg" />
+    <Content Include="Content\Images\Spodnie2.jpg" />
     <Content Include="Content\Prototype.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -294,6 +298,8 @@
     <Content Include="Views\Kursy\_SklepList.cshtml" />
     <Content Include="Views\Kursy\Szczegoly.cshtml" />
     <Content Include="Views\Koszyk\Index.cshtml" />
+    <Content Include="Views\Shared\_RightSectionLayout.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
