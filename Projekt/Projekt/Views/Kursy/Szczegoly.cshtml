@@ -1,0 +1,46 @@
+﻿@model Projekt.Models.Sklep
+@using Projekt.Infrastructure
+
+@{
+    ViewBag.Title = "Szczegoly";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="ListaKategoriZawartosc">
+    @Html.Action("KategorieMenu")
+    <div id="KategorieListPrawaSekcja">
+        <section id="SekcjaKurs">
+            <div id="KursLewa">
+                <img src="@Url.IkonyKategoriiSciezka(Model.NazwaPlikuObrazka)" />
+            </div>
+            <div id="KursPrawa">
+                <div id="KursNazwa">
+                    <h1>
+                        @Model.Tytul
+                    </h1>
+                    <h2>
+                        @Model.Marka
+                    </h2>
+                </div>
+                <div id="KursCena">
+                    <div>
+                        @Model.Cena<span>PLN</span>
+                    </div>
+                    <a href="@Url.Action("DodajDoKoszyka","Kursy",new { id = Model.SklepId })"></a>
+                </div>
+                <div id="KursOpis">
+                    @Model.OpisSkrocony
+                </div>
+                <div id="KursInfo">
+                    
+                </div>
+                <div class="SekcjaPrzyciski">
+                    <a class="PrzyciskLink" href="@Url.Action("DodajDoKoszyka","Koszyk", new { id = Model.SklepId })">Dodaj do Koszyka</a>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+</div>
+

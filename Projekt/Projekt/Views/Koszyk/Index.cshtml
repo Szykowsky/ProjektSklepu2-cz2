@@ -1,0 +1,45 @@
+﻿@model Projekt.View_Models.KoszykViewModel
+@using Projekt.Infrastructure
+@{
+    ViewBag.Title = "Koszyk";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="ListaKategoriZawartosc">
+    <div id="KategorieListPrawaSekcja">
+        @Html.Action("KategorieMenu", "Kursy")
+        <section class="SekcjaKoszyk">
+            <div class="SekcjaHeader" style="margin-bottom: 0px;">
+                <h1>Twój koszyk</h1>
+            </div>
+
+            <table id="koszykTabela">
+                @foreach (var pozycjaKoszyka in Model.PozycjeKoszyka)
+                {
+                    <tr id="koszyk-wiersz-@pozycjaKoszyka.sklep.SklepId">
+                        <td>
+                            <a href="@Url.Action("Szczegoly","Kursy",new { id = pozycjaKoszyka.sklep.SklepId})">
+                                <img src="@Url.IkonyKategoriiSciezka(pozycjaKoszyka.sklep.NazwaPlikuObrazka)" />
+                            </a>
+                        </td>
+                        <td><a href="@Url.Action("Szczegoly","Kursy",new { id = pozycjaKoszyka.sklep.SklepId})">@pozycjaKoszyka.sklep.Tytul</a></td>
+                        <td>Ilość: <span id="koszyk-ilosc-pozycji-@pozycjaKoszyka.sklep.SklepId">@pozycjaKoszyka.ilosc</span></td>
+                        <td>@pozycjaKoszyka.wartosc zł</td>
+                        <td><a class="usunKurs" data-id="@pozycjaKoszyka.sklep.SklepId" href="@Url.Action("UsunZKoszyka","Koszyk", new { id = pozycjaKoszyka.sklep.SklepId })">Usuń</a></td>
+                    </tr>
+                }
+            </table>
+            <div id="CenaCalkowita" style="">
+                Razem: <span id="calkowita-cena-wartosc">@Model.CenaCalkowita</span> zł
+            </div>
+
+            <div class="SekcjaPrzyciski">
+                <a class="PrzyciskLink" href="@Url.Content("~/")">Kontynuuj zakupy</a>
+                @if (Model.CenaCalkowita > 0)
+                {
+                    <a class="PrzyciskLink" id="koszyk-button-zaplac" href="@Url.Action("Zaplac","Koszyk")">Zapłać</a>
+                }
+            </div>
+        </section>
+    </div>
+</div>

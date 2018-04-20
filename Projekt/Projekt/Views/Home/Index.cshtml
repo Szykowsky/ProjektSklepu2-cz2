@@ -1,0 +1,68 @@
+﻿@model Projekt.View_Models.HomeViewModel
+@using Projekt.Infrastructure
+
+@{
+    ViewBag.Title = "Super Sklep";
+}
+<div id="ListaKategoriZawartosc">
+    <nav class="KategorieVertical">
+        <ul>
+            @foreach (var kategoria in Model.Kategorie)
+            {
+                <li>
+                    <a href="@Url.Action("Lista", "Kursy", new { nazwaKategori = kategoria.NazwaKategorii.ToLower() })">
+                        @kategoria.NazwaKategorii
+                    </a>
+                </li>
+            }
+
+
+        </ul>
+    </nav>
+    <div id="KategorieListPrawaSekcja">
+
+        <div id="SekcjaListaKategori">
+            <ul class="KursyTrzyKolumny KursCena">
+                @foreach (var bestseller in Model.Bestsellery)
+                {
+                    <li>
+                        <article>
+                            <a class="dodajDoKoszykaLink" href="@Url.Action("DodajDoKoszyka","Koszyk",new { id = bestseller.SklepId })">
+                                <img src="../Content/Images/Koszyk.jpg" />
+                            </a>
+                            <a class="kursSzczegolyLink" href="@Url.Action("Szczegoly", "Kursy", new { id = bestseller.SklepId })">
+                                <div class="bestsellerFlag"></div>
+                                <img class="kurs" src="@Url.IkonyKategoriiSciezka(bestseller.NazwaPlikuObrazka)" />
+                                <h1>
+                                    @bestseller.Tytul - @bestseller.Cena
+                                </h1>
+                            </a>
+                        </article>
+                    </li>
+                }
+                @foreach (var nowosc in Model.Nowosci)
+                {
+                    <li>
+                        <article>
+                            <a class="dodajDoKoszykaLink" href="@Url.Action("DodajDoKoszyka","Koszyk",new { id = nowosc.SklepId })">
+                                <img src="../Content/Images/Koszyk.jpg" />
+                            </a>
+                            <a class="kursSzczegolyLink" href="@Url.Action("Szczegoly", "Kursy", new { id = nowosc.SklepId })">
+                                <div class="newFlag"></div>
+                                <img class="kurs" src="@Url.IkonyKategoriiSciezka(nowosc.NazwaPlikuObrazka)" />
+                                <h1>
+                                    @nowosc.Tytul - @nowosc.Cena
+                                </h1>
+                            </a>
+                        </article>
+                    </li>
+                }
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Projekt.Models.Sklep>
+@using Projekt.Infrastructure
+
+
+<ul class="KursyTrzyKolumny KursCena">
+    @foreach (var produkt in Model)
+    {
+        <li>
+            <article>
+                <a class="dodajDoKoszykaLink" href="@Url.Action("DodajDoKoszyka","Koszyk", new { id = produkt.SklepId })">
+                    <img src="@Url.Content("~/Content/Images/Koszyk.jpg")" />
+                </a>
+                @if (produkt.bestseller)
+                {
+                    <div class="bestsellerFlag"></div>
+                }
+                <a class="kursSzczegolyLink" href="@Url.Action("Szczegoly","Kursy",new { id = produkt.SklepId })">
+                    <img class="kurs" src="@Url.IkonyKategoriiSciezka(produkt.NazwaPlikuObrazka)" />
+                    <h1>
+                        @produkt.Tytul - @produkt.Cena
+                    </h1>
+                </a>
+            </article>
+        </li>
+    }
+</ul>
