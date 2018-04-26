@@ -12,7 +12,7 @@ namespace Projekt.View_Models
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required(ErrorMessage ="Wprwadz hasło")]
+        [Required(ErrorMessage ="Wprowadz hasło")]
         [DataType(DataType.Password)]
         [Display(Name ="Hasło")]
         public string Password { get; set; }
@@ -27,7 +27,7 @@ namespace Projekt.View_Models
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Wprwadz hasło")]
+        [Required(ErrorMessage = "Wprowadz hasło")]
         [StringLength(30,ErrorMessage ="{0} musi mieć co najmniej {2} znaków",MinimumLength =6)]
         [DataType(DataType.Password)]
         [Display(Name = "Hasło")]

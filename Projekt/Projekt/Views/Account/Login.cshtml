@@ -29,11 +29,11 @@
                     </div>
                 </td>
             </tr>
-            <tr >
-                <td >@Html.LabelFor(o => o.Password, "Hasło:")</td>
+            <tr>
+                <td>@Html.LabelFor(o => o.Password, "Hasło:")</td>
                 <td>
                     @Html.PasswordFor(o => o.Password)
-                    <div class="login-validation-message" style="margin-bottom: 10px;" >
+                    <div class="login-validation-message" style="margin-bottom: 10px;">
                         @Html.ValidationMessageFor(o => o.Password)
                     </div>
                 </td>
@@ -58,4 +58,9 @@
 </div>
 
 
-
+@section Scripts
+{
+    <script src="~/Scripts/jquery-1.12.4.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+}
