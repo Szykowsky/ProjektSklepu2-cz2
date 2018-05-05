@@ -18,6 +18,8 @@ namespace Projekt.Models
 
         public string Telefon { get; set; }
 
+        public string KodPocztowy { get; set; }
+
         [EmailAddress(ErrorMessage = "Błędny format adresu e-mail")]
         public string Email { get; set; }
     }

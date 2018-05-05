@@ -214,6 +214,10 @@
     <Compile Include="Migrations\201805051138238_DodanieAspIdentity.Designer.cs">
       <DependentUpon>201805051138238_DodanieAspIdentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805051844230_Zamowienia.cs" />
+    <Compile Include="Migrations\201805051844230_Zamowienia.Designer.cs">
+      <DependentUpon>201805051844230_Zamowienia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DaneUzytkownika.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -338,6 +342,8 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Koszyk\Zaplac.cshtml" />
+    <Content Include="Views\Koszyk\PotwierdzenieZamowienia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -363,6 +369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805051138238_DodanieAspIdentity.resx">
       <DependentUpon>201805051138238_DodanieAspIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805051844230_Zamowienia.resx">
+      <DependentUpon>201805051844230_Zamowienia.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

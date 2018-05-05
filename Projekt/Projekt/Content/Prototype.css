@@ -686,3 +686,40 @@ footer {
         color: white;
         padding-left: 15px;
     }
+
+#checkout-address-table tr {
+    height: 40px;
+}
+
+    #checkout-address-table tr td {
+        vertical-align: middle;
+    }
+
+        #checkout-address-table tr td:first-child {
+            padding-right: 50px;
+            vertical-align: middle;
+        }
+
+        #checkout-address-table tr td:nth-child(2) {
+            vertical-align: middle;
+        }
+
+        #checkout-address-table tr td:nth-child(3) {
+            padding-left: 10px;
+            font-size: 15px;
+            color: red;
+        }
+
+#checkout-address-table input {
+    border: 1px solid gray;
+    width: 250px;
+    height: 20px;
+    padding: 5px;
+}
+
+#checkout-address-table textarea {
+    width: 250px;
+    border: 1px solid gray;
+    padding: 5px;
+    margin-top: 5px;
+}

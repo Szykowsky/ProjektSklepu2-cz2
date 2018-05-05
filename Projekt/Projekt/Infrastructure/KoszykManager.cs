@@ -101,7 +101,7 @@ namespace Projekt.Infrastructure
         {
             var koszyk = PobierzKoszyk();
             noweZamowienia.DataDodania = DateTime.Now;
-            //noweZamowienia.userId = userID;
+            noweZamowienia.UserId = userID;
 
             db.Zamowienie.Add(noweZamowienia);
 
