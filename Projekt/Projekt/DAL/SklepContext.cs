@@ -1,4 +1,5 @@
-﻿using Projekt.Models;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using Projekt.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,11 +9,16 @@ using System.Web;
 
 namespace Projekt.DAL
 {
-    public class SklepContext : DbContext
+    public class SklepContext : IdentityDbContext<ApplicationUser>
     {
         public SklepContext() : base("SklepContext")
         {
 
+        }
+
+        public static SklepContext Create()
+        {
+            return new SklepContext();
         }
 
         static SklepContext() => Database.SetInitializer(new SklepInitializer());
