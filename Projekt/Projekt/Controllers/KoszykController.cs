@@ -93,7 +93,7 @@ namespace Projekt.Controllers
 
                 var user = await UserManager.FindByIdAsync(userId);
                 TryUpdateModel(user.DaneUzytkownika);
-                //await userManager.UpdateAsync(user);
+                await UserManager.UpdateAsync(user);
 
                 koszykManager.PustyKoszyk();
 

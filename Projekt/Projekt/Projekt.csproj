@@ -190,6 +190,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KoszykController.cs" />
     <Compile Include="Controllers\KursyController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DAL\SklepContext.cs" />
     <Compile Include="DAL\SklepInitializer.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
@@ -231,6 +232,7 @@
     <Compile Include="View_Models\AccountViewModel.cs" />
     <Compile Include="View_Models\HomeViewModel.cs" />
     <Compile Include="View_Models\KoszykViewModel.cs" />
+    <Compile Include="View_Models\ManageViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -344,6 +346,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Koszyk\Zaplac.cshtml" />
     <Content Include="Views\Koszyk\PotwierdzenieZamowienia.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Shared\_ManageLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
