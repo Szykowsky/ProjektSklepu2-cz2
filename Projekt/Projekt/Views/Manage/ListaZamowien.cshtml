@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Projekt.Models.Zamowienia>
+@{
+    ViewBag.Title = "ListaZamowien";
+    Layout = "~/Views/Shared/_ManageLayout.cshtml";
+}
+
+<hr />
+
+
+<div>
+    @if (Model.Any())
+    {
+        <table>
+            @foreach (var zamowienie in Model)
+            {
+                <tr @if (zamowienie.StanZamowienia == Projekt.Models.StanZamowienia.Nowe) { <text> class="NoweZamowienie" </text> }>
+                    <td>
+                        <strong>Nr Zamówienia: </strong>@zamowienie.ZamowieniaId;
+                    </td>
+                    <td>
+                        <strong>Data: </strong>@zamowienie.DataDodania.ToString("dd-MM-yyyy");
+                    </td>
+                    <td>
+                        <strong>Stan: </strong>
+                        @if (ViewBag.UserIsAdmin)
+                        {
+                            using (@Html.BeginForm("ZmianaStanuZamowienia", "Manage",new { zamowienie = zamowienie }))
+                            {
+                                @Html.HiddenFor(o => zamowienie.ZamowieniaId)
+                                @Html.EnumDropDownListFor(o => zamowienie.StanZamowienia, new { @class = "StanZamowieniaZmien" })
+                                <button type="submit">Potwierdz</button>
+                            }
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(o => zamowienie.StanZamowienia)
+                        }
+                    </td>
+                    <td>
+                        <strong>Dane wysyłkowe:</strong><br />
+                        @zamowienie.Imie @zamowienie.Nazwisko<br />
+                        @zamowienie.Miasto <br />
+                        @zamowienie.KodPocztowy @zamowienie.Adres<br />
+                    </td>
+                    <td>
+                        <strong>Uwagi</strong>
+                        @zamowienie.Komentarz
+                    </td>
+                    <td>
+                        <strong>Wartość zamówienia</strong> @zamowienie.WartoscZamowienia zł
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <div>
+            Brak zamówień
+        </div>
+    }
+</div>
+

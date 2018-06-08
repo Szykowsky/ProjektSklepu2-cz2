@@ -1,0 +1,94 @@
+﻿@model Projekt.View_Models.EditPrzedmiotViewModel
+@{
+    ViewBag.Title = "Dodaj";
+    Layout = "~/Views/Shared/_ManageLayout.cshtml";
+}
+
+<hr />
+<h2>Edycja Produktu</h2>
+<div>
+    @if(Model.Potiwerdzenie.HasValue && Model.Potiwerdzenie.Value)
+    {
+        <div>Pomyślnie Wprowadzono zmiany</div>
+    }
+    @using (Html.BeginForm("Dodaj", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div>@Html.ValidationSummary()</div>
+
+        <div>
+            <table>
+                <tr>
+                    <td>@Html.LabelFor(o => o.Sklep.Marka, "Marka: ")</td>
+                    <td>@Html.TextBoxFor(o => o.Sklep.Marka)</td>
+                    <td>@Html.ValidationMessageFor(o => o.Sklep.Marka)</td>
+                </tr>
+
+                <tr>
+                    <td>@Html.LabelFor(o => o.Sklep.Kategoria, "Kategoria: ")</td>
+                    <td>@Html.DropDownListFor(m => m.Sklep.SklepId, new SelectList(Model.Kategoria, "KategoriaId", "NazwaKategorii", Model.Kategoria.First().KategoriaId))</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>@Html.LabelFor(o => o.Sklep.Tytul, "Tytuł: ")</td>
+                    <td>@Html.TextBoxFor(o => o.Sklep.Tytul)</td>
+                    <td>@Html.ValidationMessageFor(o => o.Sklep.Tytul)</td>
+                </tr>
+
+                <tr>
+                    <td>@Html.LabelFor(o => o.Sklep.OpisPrzedmiotu, "Opis Przedmiotu(taki jak kategoria): ")</td>
+                    <td>@Html.TextBoxFor(o => o.Sklep.OpisPrzedmiotu)</td>
+                    <td>@Html.ValidationMessageFor(o => o.Sklep.OpisPrzedmiotu)</td>
+                </tr>
+
+                <tr>
+                    <td>@Html.LabelFor(o => o.Sklep.OpisSkrocony, "Opis skrócony: ")</td>
+                    <td>@Html.TextBoxFor(o => o.Sklep.OpisSkrocony)</td>
+                    <td>@Html.ValidationMessageFor(o => o.Sklep.OpisSkrocony)</td>
+                </tr>
+
+                <tr>
+                    <td>@Html.LabelFor(o => o.Sklep.Cena, "Cena: ")</td>
+                    <td>@Html.TextBoxFor(o => o.Sklep.Cena)</td>
+                    <td>@Html.ValidationMessageFor(o => o.Sklep.Cena)</td>
+                </tr>
+
+                <tr>
+                    <td>@Html.LabelFor(o => o.Sklep.bestseller, "Bestseller: ")</td>
+                    <td>@Html.CheckBoxFor(o => o.Sklep.bestseller)</td>
+                    <td></td>
+                </tr>
+
+                @if (ViewBag.EditMode == null || !ViewBag.EditMode)
+                {
+                    <tr>
+                        <td colspan="3"> <input type="file" name="file" /></td>
+                    </tr>
+
+                }
+                <tr>
+                    <td>
+                        @*@if (ViewBag.EditMode)
+                        {
+                            if (Model.Sklep.Ukryty)
+                            {
+                                <a href="@Url.Action("PokazPrzedmiot", "Manage", new { przedmiotId = Model.Sklep.SklepId })">Przywróć</a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("UkryjPrzedmiot","Manage", new { przedmiotId = Model.Sklep.SklepId})">Ukryj</a>
+                            }
+                        }*@
+                    </td>
+                    <td><input type="submit" value="Zapisz" class="PrzyciskLink" /></td>
+                    <td></td>
+                </tr>
+            </table>
+
+
+        </div>
+    }
+
+</div>

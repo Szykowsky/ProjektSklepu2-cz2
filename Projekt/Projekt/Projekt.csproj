@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201805051844230_Zamowienia.Designer.cs">
       <DependentUpon>201805051844230_Zamowienia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805151142330_zmianaNazwyWSklepie.cs" />
+    <Compile Include="Migrations\201805151142330_zmianaNazwyWSklepie.Designer.cs">
+      <DependentUpon>201805151142330_zmianaNazwyWSklepie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DaneUzytkownika.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -230,6 +234,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="View_Models\AccountViewModel.cs" />
+    <Compile Include="View_Models\EditPrzedmiotViewModel.cs" />
     <Compile Include="View_Models\HomeViewModel.cs" />
     <Compile Include="View_Models\KoszykViewModel.cs" />
     <Compile Include="View_Models\ManageViewModels.cs" />
@@ -348,6 +353,9 @@
     <Content Include="Views\Koszyk\PotwierdzenieZamowienia.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Shared\_ManageLayout.cshtml" />
+    <Content Include="Views\Manage\ListaZamowien.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
+    <Content Include="Views\Manage\Dodaj.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -376,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805051844230_Zamowienia.resx">
       <DependentUpon>201805051844230_Zamowienia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805151142330_zmianaNazwyWSklepie.resx">
+      <DependentUpon>201805151142330_zmianaNazwyWSklepie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

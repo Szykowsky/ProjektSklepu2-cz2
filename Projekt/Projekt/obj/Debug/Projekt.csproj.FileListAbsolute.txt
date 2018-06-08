@@ -76,3 +76,4 @@ C:\Users\Kacper1\source\repos\ProjektSklepu\Projekt\Projekt\bin\Microsoft.Owin.H
 C:\Users\Kacper1\source\repos\ProjektSklepu\Projekt\Projekt\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\Kacper1\source\repos\ProjektSklepu\Projekt\Projekt\obj\Debug\Projekt.Migrations.DodanieAspIdentity.resources
 C:\Users\Kacper1\source\repos\ProjektSklepu\Projekt\Projekt\obj\Debug\Projekt.Migrations.Zamowienia.resources
+C:\Users\Kacper1\source\repos\ProjektSklepu\Projekt\Projekt\obj\Debug\Projekt.Migrations.zmianaNazwyWSklepie.resources

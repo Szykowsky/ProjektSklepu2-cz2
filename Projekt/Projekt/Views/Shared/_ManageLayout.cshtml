@@ -17,6 +17,11 @@
         <div style="overflow: hidden;">
             <a class="PrzyciskLink" href="@Url.Action("Index", "Home")">Start</a>
             <a class="PrzyciskLink" href="@Url.Action("Index", "Manage")">Profil</a>
+            <a class="PrzyciskLink" href="@Url.Action("ListaZamowien", "Manage")">Zamowienia</a>
+            @if (User.IsInRole("Admin"))
+            {
+                <a class="PrzyciskLink" href="@Url.Action("Dodaj","Manage")">Dodaj</a>
+            }
 
             <a id="koszykHeaderLink" href="@Url.Action("Index", "Koszyk")">
                 Koszyk (@Html.Action("PobierzIloscElementowKoszyka", "Koszyk"))

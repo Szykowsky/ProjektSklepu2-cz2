@@ -17,6 +17,7 @@ namespace Projekt.Migrations
         protected override void Seed(Projekt.DAL.SklepContext context)
         {
             SklepInitializer.SeedSklepData(context);
+            SklepInitializer.SeedUzytkownicy(context);
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

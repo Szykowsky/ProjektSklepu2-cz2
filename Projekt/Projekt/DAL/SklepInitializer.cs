@@ -1,4 +1,6 @@
-﻿using Projekt.Migrations;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Projekt.Migrations;
 using Projekt.Models;
 using System;
 using System.Collections.Generic;
@@ -44,6 +46,36 @@ namespace Projekt.DAL
 
             sklep.ForEach(k => context.Sklep.AddOrUpdate(k));
             context.SaveChanges();
+        }
+
+        public static void SeedUzytkownicy(SklepContext db)
+        {
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
+
+            const string name = "admin@sklep.pl";
+            const string password = "P@ssw0rd";
+            const string roleName = "Admin";
+
+            var user = UserManager.FindByName(name);
+            if(user == null)
+            {
+                user = new ApplicationUser { UserName = name, Email = name, DaneUzytkownika = new DaneUzytkownika() };
+                var resul = UserManager.Create(user, password);
+            }
+
+            var role = roleManager.FindByName(name);
+            if(role == null)
+            {
+                role = new IdentityRole(roleName);
+                var roleResult = roleManager.Create(role);
+            }
+
+            var rolesForUser = UserManager.GetRoles(user.Id);
+            if (!rolesForUser.Contains(role.Name))
+            {
+                var result = UserManager.AddToRole(user.Id, role.Name);
+            }
         }
     }
 }

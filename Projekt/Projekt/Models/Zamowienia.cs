@@ -6,6 +6,12 @@ using System.Web;
 
 namespace Projekt.Models
 {
+    public enum StanZamowienia
+    {
+        Nowe,
+        Zrealizowane
+    }
+
     public class Zamowienia
     {
         public int ZamowieniaId { get; set; }
@@ -44,9 +50,5 @@ namespace Projekt.Models
 
         public  List<PozycjaZamowienia> PozycjeZamowienia { get; set; }
     }
-    public enum StanZamowienia
-    {
-        Nowe,
-        Zrealizowane
-    }
+    
 }
